@@ -1,15 +1,22 @@
 "use client";
 
 import { useEffect } from "react";
-import { X } from 'lucide-react';
+import Link from "next/link";
+import { X } from "lucide-react";
+
+type NavLink = {
+  label: string;
+  href: string;
+};
 
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
+  links: NavLink[];
 }
 
-export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
-  // Prevenir scroll cuando el menú está abierto
+export default function MobileMenu({ isOpen, onClose, links }: MobileMenuProps) {
+  // Prevenir scroll cuando el menú esté abierto
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -37,57 +44,35 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             <X className="h-6 w-6 text-[#084CA1]" />
           </button>
         </div>
-        
+
         <nav className="flex flex-col p-4 space-y-4">
-          <a 
-            href="#home" 
-            className="text-[#084CA1] hover:text-[#084CA1]/80 font-medium py-2"
-            onClick={handleLinkClick}
-          >
-            HOME
-          </a>
-          <a 
-            href="#chi-siamo" 
-            className="text-[#084CA1] hover:text-[#084CA1]/80 font-medium py-2"
-            onClick={handleLinkClick}
-          >
-            CHI SIAMO
-          </a>
-          <a 
-            href="#processi" 
-            className="text-[#084CA1] hover:text-[#084CA1]/80 font-medium py-2"
-            onClick={handleLinkClick}
-          >
-            PROCESSI
-          </a>
-          <a 
-            href="#filosofia" 
-            className="text-[#084CA1] hover:text-[#084CA1]/80 font-medium py-2"
-            onClick={handleLinkClick}
-          >
-            FILOSOFIA
-          </a>
-          <a 
-            href="#servizi" 
-            className="text-[#084CA1] hover:text-[#084CA1]/80 font-medium py-2"
-            onClick={handleLinkClick}
-          >
-            SERVIZI
-          </a>
-          <a 
-            href="#clienti" 
-            className="text-[#084CA1] hover:text-[#084CA1]/80 font-medium py-2"
-            onClick={handleLinkClick}
-          >
-            CLIENTI
-          </a>
-          <a 
-            href="#contatti" 
-            className="text-[#084CA1] hover:text-[#084CA1]/80 font-medium py-2"
-            onClick={handleLinkClick}
-          >
-            CONTATTI
-          </a>
+          {links.map((link) => {
+            const isAnchor = link.href.startsWith("#");
+
+            if (isAnchor) {
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="text-[#084CA1] hover:text-[#084CA1]/80 font-medium py-2"
+                  onClick={handleLinkClick}
+                >
+                  {link.label}
+                </a>
+              );
+            }
+
+            return (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="text-[#084CA1] hover:text-[#084CA1]/80 font-medium py-2"
+                onClick={handleLinkClick}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
       </div>
     </div>
