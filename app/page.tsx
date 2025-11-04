@@ -6,6 +6,7 @@ import Filosofia from "@/components/filosofia"
 import Strategia from "@/components/strategia"
 import Servizi from "@/components/servizi"
 import Giudiziale from "@/components/giudiziale"
+import Clienti from "@/components/clienti"
 import Contact from "@/components/contact"
 import Navbar from "@/components/navbar";
 
@@ -20,6 +21,7 @@ export default function Home() {
       <Strategia />
       <Servizi />
       <Giudiziale />
+      <Clienti />
       <Contact />
     </main>
 

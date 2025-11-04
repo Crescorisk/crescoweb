@@ -75,6 +75,13 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             SERVIZI
           </a>
           <a 
+            href="#clienti" 
+            className="text-[#084CA1] hover:text-[#084CA1]/80 font-medium py-2"
+            onClick={handleLinkClick}
+          >
+            CLIENTI
+          </a>
+          <a 
             href="#contatti" 
             className="text-[#084CA1] hover:text-[#084CA1]/80 font-medium py-2"
             onClick={handleLinkClick}

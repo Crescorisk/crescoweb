@@ -33,6 +33,7 @@ const Navbar = () => {
               <a href="#processi" className="text-[#084CA1] hover:text-[#084CA1]/80 font-medium">PROCESSI</a>
               <a href="#filosofia" className="text-[#084CA1] hover:text-[#084CA1]/80 font-medium">FILOSOFIA</a>
               <a href="#servizi" className="text-[#084CA1] hover:text-[#084CA1]/80 font-medium">SERVIZI</a>
+              <a href="#clienti" className="text-[#084CA1] hover:text-[#084CA1]/80 font-medium">CLIENTI</a>
               <a href="#contatti" className="text-[#084CA1] hover:text-[#084CA1]/80 font-medium">CONTATTI</a>
             </nav>
             
